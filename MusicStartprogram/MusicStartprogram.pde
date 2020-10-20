@@ -25,6 +25,48 @@ void setup() {
   song[2] = minim.loadFile("Berlin at Night - Dan Henig.mp3");
   song[3] = minim.loadFile("Stoner Things - Patiño.mp3");
   song[4] = minim.loadFile("Manic. No Depression. - Jeremy Korpas.mp3");
+  //
+  /*
+  songMetaData[0] = song[0].getMetaData();
+  songMetaData[1] = song[1].getMetaData();
+  songMetaData[2] = song[2].getMetaData();
+  songMetaData[3] = song[3].getMetaData();
+  songMetaData[4] = song[4].getMetaData();
+  */
+  for (int i=0; i<song.length ;i++) {
+    songMetaData[i] = song[i].getMetaData();
+  }//END SONG METADATA
+  //
+  println("Start of Console");
+  println("Click the Canvas to Finish Starting this App");
+  println("Press P Play and Pause");
+  println("Press S to Stop and Rewind");
+  println("Press L to loop the song");
+  println("Pres R to skip backwards in a song");
+  println("Pres F to fast forward in a song");
+  //VERIFYING METADATA
+  //ALWAYS AVAILABLE
+  /*
+  println("");
+  println("");
+  println("");
+  println("");
+  println("");
+  println("");  
+  println("");
+  println("");
+  println("");
+  println("");
+  println("");
+  println("");
+  println("");
+  println("");
+  println("");
+  println("");
+  println("");
+  println("");
+  println("");
+  */
 }
 //
 //
