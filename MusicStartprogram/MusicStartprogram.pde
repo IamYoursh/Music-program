@@ -9,8 +9,10 @@ import ddf.minim.ugens.*;
 Minim minim;
 int numberOfSongs = 5;
 AudioPlayer[] song = new AudioPlayer[numberOfSongs];
+AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs];
 
-
+int currentSong = 0;
+int loopNum = 1;
 
 color white = #FFFFFF;
 //
