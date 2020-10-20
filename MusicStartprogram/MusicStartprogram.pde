@@ -10,7 +10,7 @@ Minim minim;
 int numberOfSongs = 5;
 AudioPlayer[] song = new AudioPlayer[numberOfSongs];
 AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs];
-int currentSong = 0;
+int currentSong = 2;
 int loopNum = 1;
 //
 //GUI
@@ -23,7 +23,7 @@ void setup() {
   song[0] = minim.loadFile("Danger Snow - Dan Henig.mp3");
   song[1] = minim.loadFile("Grey Flannel - Vans in Japan.mp3");
   song[2] = minim.loadFile("Berlin at Night - Dan Henig.mp3");
-  song[3] = minim.loadFile("Stoner Things - Patiño.mp3");
+  song[3] = minim.loadFile("Stoner Things.mp3");
   song[4] = minim.loadFile("Manic. No Depression. - Jeremy Korpas.mp3");
   //
   /*
@@ -42,8 +42,8 @@ void setup() {
   println("Press P Play and Pause");
   println("Press S to Stop and Rewind");
   println("Press L to loop the song");
-  println("Pres R to skip backwards in a song");
-  println("Pres F to fast forward in a song");
+  println("Press R to skip backwards in a song");
+  println("Press F to fast forward in a song");
   //VERIFYING METADATA
   //ALWAYS AVAILABLE
   println("\n\nVerifying MetaData");
@@ -83,7 +83,7 @@ void draw() {
 void keyPressed() {
   if (key == 'p' || key == 'P') {
     if ( song[currentSong].isPlaying() ) {
-      song[0].pause();
+      song[currentSong].pause();
     } else if (song[currentSong].position() == song[currentSong].length()) {
       song[currentSong].rewind();
       song[currentSong].play();
@@ -111,11 +111,11 @@ void keyPressed() {
 void mousePressed() {
   if (mouseX>playButtonX && mouseX<playButtonX+playButtonWidth && mouseY>playButtonY && mouseY<playButtonY+playButtonHeight) {}
     if ( song[currentSong].isPlaying() ) {
-      song[0].pause();
+      song[currentSong].pause();
     } else if (song[currentSong].position() == song[currentSong].length()) {
       song[currentSong].rewind();
       song[currentSong].play();
     } else {
       song[currentSong].play();
-    }
+    }  
 }
