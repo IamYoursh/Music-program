@@ -46,26 +46,26 @@ void setup() {
   println("Pres F to fast forward in a song");
   //VERIFYING METADATA
   //ALWAYS AVAILABLE
-  /*
-  println("");
-  println("");
-  println("");
-  println("");
-  println("");
-  println("");  
-  println("");
-  println("");
-  println("");
-  println("");
-  println("");
-  println("");
-  println("");
-  println("");
-  println("");
-  println("");
-  println("");
-  println("");
-  println("");
+  println("\n\nVerifying MetaData");
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);  
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
+  println(" :", songMetaData[currentSong].);
   */
 }
 //
