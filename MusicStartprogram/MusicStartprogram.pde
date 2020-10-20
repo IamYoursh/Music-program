@@ -47,26 +47,29 @@ void setup() {
   //VERIFYING METADATA
   //ALWAYS AVAILABLE
   println("\n\nVerifying MetaData");
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);  
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  println(" :", songMetaData[currentSong].);
-  */
+  println( "File Name:", songMetaData[currentSong].fileName() );
+  println( "Song Length (in minutes & seconds):", (songMetaData[currentSong].length()/1000)/60, "minutes", (songMetaData[currentSong].length()/1000)-((songMetaData[currentSong].length()/1000)/60 * 60), "seconds");
+  
+  println( "Title:", songMetaData[currentSong].title() );
+  println( "Author:", songMetaData[currentSong].author() );
+  println( "Composer:", songMetaData[currentSong].composer() );
+  println( "Orchestra:", songMetaData[currentSong].orchestra() );
+  println( "Album:", songMetaData[currentSong].album() );
+  println( " :", songMetaData[currentSong]. );
+  println( " :", songMetaData[currentSong]. );
+  println( " :", songMetaData[currentSong]. );
+  println( " :", songMetaData[currentSong]. );
+  println( " :", songMetaData[currentSong]. );
+  println( " :", songMetaData[currentSong]. );
+  println( " :", songMetaData[currentSong]. );
+  println( " :", songMetaData[currentSong]. );
+  println( " :", songMetaData[currentSong]. );
+  println( " :", songMetaData[currentSong]. );
+  println( " :", songMetaData[currentSong]. );
+  println( " :", songMetaData[currentSong]. );
+  println( " :", songMetaData[currentSong]. );
+  println( " :", songMetaData[currentSong]. );
+  
 }
 //
 //
@@ -78,7 +81,7 @@ void draw() {
 //
 void keyPressed() {
   if (key == 'p' || key == 'p') {
-    if ( song[1].isPlaying() ) {
+    if ( song[0].isPlaying() ) {
       song[0].pause();
     } else if ( song[0].position() == song[0].length() ) {
       song[0].rewind();
@@ -88,7 +91,7 @@ void keyPressed() {
     }
   }//END PLAY-PAUSE BUTTON
   //
-  if (key == 's' || key =='s') {
+  if (key == 'S' || key =='S') {
   if ( song[0].isPlaying() ) {
     song[0].pause();
     song[0].rewind();
