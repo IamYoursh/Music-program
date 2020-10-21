@@ -10,15 +10,20 @@ Minim minim;
 int numberOfSongs = 5;
 AudioPlayer[] song = new AudioPlayer[numberOfSongs];
 AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs];
-int currentSong = 2;
+int currentSong = 0;
 int loopNum = 1;
 //
 //GUI
-color white = #FFFFFF;
-float playButtonX,playButtonY, playButtonWidth, playButtonHeight;
+color white = #FFFFFF, black = #000000;
+//float playButtonX, playButtonY, playButtonWidth, playButtonHeight;
+//float SkipforwardButtonX, SkipforwardButtonY, SkipforwardButtonWidth, SkipforwardButtonHeight;
+float button1X, button1Y, button1Width, button1Height;
+float button2X, button2Y, button2Width, button2Height;
+float button3X, button3Y, button3Width, button3Height;
+float pt1X, pt1Y, rectWidth, rectHeight;
 
 void setup() {
-  size(500, 700);
+  size(500, 600);
   minim = new Minim(this);
   song[0] = minim.loadFile("Danger Snow - Dan Henig.mp3");
   song[1] = minim.loadFile("Grey Flannel - Vans in Japan.mp3");
@@ -28,11 +33,11 @@ void setup() {
   //
   /*
   songMetaData[0] = song[0].getMetaData();
-  songMetaData[1] = song[1].getMetaData();
-  songMetaData[2] = song[2].getMetaData();
-  songMetaData[3] = song[3].getMetaData();
-  songMetaData[4] = song[4].getMetaData();
-  */
+   songMetaData[1] = song[1].getMetaData();
+   songMetaData[2] = song[2].getMetaData();
+   songMetaData[3] = song[3].getMetaData();
+   songMetaData[4] = song[4].getMetaData();
+   */
   for (int i=0; i<song.length; i++) {
     songMetaData[i] = song[i].getMetaData();
   }//End Song MetaData
@@ -65,17 +70,58 @@ void setup() {
   println( "Encoded:", songMetaData[currentSong].encoded() );//HOW A COMPUTER READS A FILE
   //
   //VARIABLE POPULATION
-  playButtonX = width *1/2;
-  playButtonY = height *1/2;
-  playButtonWidth = width*1/5;
-  playButtonHeight = height*1/5;
+  /*
+  playButtonX = width *1.8/4;
+  playButtonY = height *2.3/3;
+  playButtonWidth = width*0.5/4;
+  playButtonHeight = height*0.5/4;
+  //
+  //
+  
+  SkipforwardButtonX = 1/2;
+  SkipforwardButtonY = 1/2;
+  SkipforwardButtonWidth = 1.5/4;
+  SkipforwardButtonHeight = 0.5/4;
+  */
+  button1X = width * 1.7/4; 
+  button1Y = height * 3/4; 
+  button1Width = width * 2.5/6 * 2.5/6;
+  button1Height = height * 2.5/6 * 2.5/6;
+  //
+  button2X = width * 8/12 ; 
+  button2Y = height * 4.7/6 ; 
+  button2Width = width * 2/6 * 2/6;
+  button2Height = height * 2/6 * 2/6;
+  //
+  button3X = width * 3/12; 
+  button3Y = height * 4.7/6; 
+  button3Width = width * 2/6 * 2/6;
+  button3Height = height * 2/6 * 2/6;
+  //
+  rectWidth = width*2.5/5;
+  rectHeight = height*3/5;
+  pt1X = width*2/7.55;
+  pt1Y = height*2/18;
 }
 //
 //
 //
 void draw() {
-  background(white);
-  rect(playButtonX,playButtonY, playButtonWidth, playButtonHeight);
+  background(black);
+  fill(white);
+  /*
+  rect(playButtonX, playButtonY, playButtonWidth, playButtonHeight);
+  
+  //fill();
+  rect(SkipforwardButtonX, SkipforwardButtonY, SkipforwardButtonWidth, SkipforwardButtonHeight);
+  */
+  rect(button1X, button1Y, button1Width, button1Height);
+  //
+  rect(button2X, button2Y, button2Width, button2Height);
+  //
+  rect(button3X, button3Y, button3Width, button3Height);
+  //
+  rect(pt1X, pt1Y, rectWidth, rectHeight);
 }
 //
 //
@@ -93,23 +139,24 @@ void keyPressed() {
   }//END PLAY-PAUSE BUTTON
   //
   if (key == 's' || key =='S') {
-  if ( song[currentSong].isPlaying() ) {
-    song[currentSong].pause();
-    song[currentSong].rewind();
-  } else {
-    song[currentSong].rewind();
-  }// END STOP BUTTON
- }
- //
- if ( key == 'l' || key == 'L' ) song[currentSong].loop(loopNum);
- if (key == 'f' || key == 'F') song[currentSong].skip(5000);
- if (key == 'r' || key == 'R') song[currentSong].skip(-5000);
+    if ( song[currentSong].isPlaying() ) {
+      song[currentSong].pause();
+      song[currentSong].rewind();
+    } else {
+      song[currentSong].rewind();
+    }// END STOP BUTTON
+  }
+  //
+  if ( key == 'l' || key == 'L' ) song[currentSong].loop(loopNum);
+  if (key == 'f' || key == 'F') song[currentSong].skip(5000);
+  if (key == 'r' || key == 'R') song[currentSong].skip(-5000);
 }
 //
 //
 //
+/*
 void mousePressed() {
-  if (mouseX>playButtonX && mouseX<playButtonX+playButtonWidth && mouseY>playButtonY && mouseY<playButtonY+playButtonHeight) {}
+  if (mouseX>playButtonX && mouseX<playButtonX+playButtonWidth && mouseY>playButtonY && mouseY<playButtonY+playButtonHeight) {
     if ( song[currentSong].isPlaying() ) {
       song[currentSong].pause();
     } else if (song[currentSong].position() == song[currentSong].length()) {
@@ -118,4 +165,7 @@ void mousePressed() {
     } else {
       song[currentSong].play();
     }  
+  }
+ 
 }
+*/
