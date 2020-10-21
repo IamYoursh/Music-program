@@ -77,7 +77,6 @@ void setup() {
   playButtonHeight = height*0.5/4;
   //
   //
-  
   SkipforwardButtonX = 1/2;
   SkipforwardButtonY = 1/2;
   SkipforwardButtonWidth = 1.5/4;
