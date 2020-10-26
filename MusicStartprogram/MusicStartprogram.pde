@@ -15,11 +15,11 @@ int loopNum = 1;
 //
 //GUI
 color white = #FFFFFF, black = #000000;
-//float playButtonX, playButtonY, playButtonWidth, playButtonHeight;
-//float SkipforwardButtonX, SkipforwardButtonY, SkipforwardButtonWidth, SkipforwardButtonHeight;
 float button1X, button1Y, button1Width, button1Height;
 float button2X, button2Y, button2Width, button2Height;
 float button3X, button3Y, button3Width, button3Height;
+float button4X, button4Y, button4Width, button4Height;
+float button5X, button5Y, button5Width, button5Height;
 float pt1X, pt1Y, rectWidth, rectHeight;
 
 void setup() {
@@ -70,19 +70,8 @@ void setup() {
   println( "Encoded:", songMetaData[currentSong].encoded() );//HOW A COMPUTER READS A FILE
   //
   //VARIABLE POPULATION
-  /*
-  playButtonX = width *1.8/4;
-  playButtonY = height *2.3/3;
-  playButtonWidth = width*0.5/4;
-  playButtonHeight = height*0.5/4;
-  //
-  //
-  SkipforwardButtonX = 1/2;
-  SkipforwardButtonY = 1/2;
-  SkipforwardButtonWidth = 1.5/4;
-  SkipforwardButtonHeight = 0.5/4;
-  */
-  button1X = width * 1.7/4; 
+
+  button1X = width * 1.64/4; 
   button1Y = height * 3/4; 
   button1Width = width * 2.5/6 * 2.5/6;
   button1Height = height * 2.5/6 * 2.5/6;
@@ -92,14 +81,24 @@ void setup() {
   button2Width = width * 2/6 * 2/6;
   button2Height = height * 2/6 * 2/6;
   //
-  button3X = width * 3/12; 
+  button3X = width * 2.57/12; 
   button3Y = height * 4.7/6; 
   button3Width = width * 2/6 * 2/6;
   button3Height = height * 2/6 * 2/6;
   //
+  button4X = width * 0.94/4; 
+  button4Y = height * 5.5/6; 
+  button4Width = width * 1.6/6 * 1.6/6;
+  button4Height = height * 1.45/6 * 1.45/6;
+  //
+  button5X = width * 2.75/4; 
+  button5Y = height * 5.5/6; 
+  button5Width = width * 1.6/6 * 1.6/6;
+  button5Height = height * 1.45/6 * 1.45/6;
+  //
   rectWidth = width*2.5/5;
   rectHeight = height*3/5;
-  pt1X = width*2/7.55;
+  pt1X = width*1.87/7.55;
   pt1Y = height*2/18;
 }
 //
@@ -108,19 +107,18 @@ void setup() {
 void draw() {
   background(black);
   fill(white);
-  /*
-  rect(playButtonX, playButtonY, playButtonWidth, playButtonHeight);
-  
-  //fill();
-  rect(SkipforwardButtonX, SkipforwardButtonY, SkipforwardButtonWidth, SkipforwardButtonHeight);
-  */
+
   rect(button1X, button1Y, button1Width, button1Height);
   //
   rect(button2X, button2Y, button2Width, button2Height);
   //
-  rect(button3X, button3Y, button3Width, button3Height);
+  rect(button3X, button3Y, button3Width, button3Height);  
   //
   rect(pt1X, pt1Y, rectWidth, rectHeight);
+  //
+  rect(button4X, button4Y, button4Width, button4Height); 
+  //                                                          //Change these two to circles 
+  rect(button5X, button5Y, button5Width, button5Height);
 }
 //
 //
@@ -146,16 +144,15 @@ void keyPressed() {
     }// END STOP BUTTON
   }
   //
-  if ( key == 'l' || key == 'L' ) song[currentSong].loop(loopNum);
+  if (key == 'l' || key == 'L') song[currentSong].loop(loopNum);
   if (key == 'f' || key == 'F') song[currentSong].skip(5000);
   if (key == 'r' || key == 'R') song[currentSong].skip(-5000);
 }
 //
 //
 //
-/*
 void mousePressed() {
-  if (mouseX>playButtonX && mouseX<playButtonX+playButtonWidth && mouseY>playButtonY && mouseY<playButtonY+playButtonHeight) {
+  if (mouseX>button1X && mouseX<button1X+button1Width && mouseY>button1Y && mouseY<button1Y+button1Height) {
     if ( song[currentSong].isPlaying() ) {
       song[currentSong].pause();
     } else if (song[currentSong].position() == song[currentSong].length()) {
@@ -163,8 +160,27 @@ void mousePressed() {
       song[currentSong].play();
     } else {
       song[currentSong].play();
-    }  
+    }
   }
- 
+  //
+  if (mouseX>button2X && mouseX<button2X+button2Width && mouseY>button2Y && mouseY<button2Y+button2Height) {
+    if ( song[currentSong].isPlaying() ) {
+      song[currentSong].skip(15000);
+    }
+  }
+  //
+  if (mouseX>button3X && mouseX<button3X+button3Width && mouseY>button3Y && mouseY<button3Y+button3Height) {
+    if ( song[currentSong].isPlaying() ) {
+      song[currentSong].skip(-15000);
+    }
+  }
+  //
+  if (mouseX>button4X && mouseX<button4X+button4Width && mouseY>button4Y && mouseY<button4Y+button4Height) {
+    if ( song[currentSong].isPlaying() ) {
+      song[currentSong].pause();
+      song[currentSong].rewind();
+    } else {
+      song[currentSong].rewind();
+    }
+  }
 }
-*/
