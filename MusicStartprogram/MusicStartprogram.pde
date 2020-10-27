@@ -25,11 +25,11 @@ float pt1X, pt1Y, rectWidth, rectHeight;
 void setup() {
   size(500, 600);
   minim = new Minim(this);
-  song[0] = minim.loadFile("Danger Snow - Dan Henig.mp3");
-  song[1] = minim.loadFile("Grey Flannel - Vans in Japan.mp3");
-  song[2] = minim.loadFile("Berlin at Night - Dan Henig.mp3");
+  song[0] = minim.loadFile("Danger Snow.mp3");
+  song[1] = minim.loadFile("Grey Flannel.mp3");
+  song[2] = minim.loadFile("Berlin at Night.mp3");
   song[3] = minim.loadFile("Stoner Things.mp3");
-  song[4] = minim.loadFile("Manic. No Depression. - Jeremy Korpas.mp3");
+  song[4] = minim.loadFile("Manic. No Depression.mp3");
   //
   /*
   songMetaData[0] = song[0].getMetaData();
