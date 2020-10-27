@@ -9,8 +9,8 @@ import ddf.minim.ugens.*;
 Minim minim;
 int numberOfSongs = 5;
 AudioPlayer[] song = new AudioPlayer[numberOfSongs];
+int currentSong = numberOfSongs - numberOfSongs;
 AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs];
-int currentSong = 0;
 int loopNum = 1;
 //
 //GUI
@@ -135,6 +135,8 @@ void keyPressed() {
     }
   }//END PLAY-PAUSE BUTTON
   //
+  //
+  //
   if (key == 's' || key =='S') {
     if ( song[currentSong].isPlaying() ) {
       song[currentSong].pause();
@@ -144,9 +146,40 @@ void keyPressed() {
     }// END STOP BUTTON
   }
   //
+  //
+  //
   if (key == 'l' || key == 'L') song[currentSong].loop(loopNum);
   if (key == 'f' || key == 'F') song[currentSong].skip(5000);
   if (key == 'r' || key == 'R') song[currentSong].skip(-5000);
+  //
+  //
+  //
+  println ("Current Song before the next or back button, ", "Number: "+currentSong); //For Debugging
+  if (key == 'n' || key == 'N') { //Next Button to Console
+    if (song[currentSong].isPlaying()) {
+      song[currentSong].pause();
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - 1 ) {
+        println ("Current Song is the last song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - numberOfSongs;
+        println ("Current Song is now the first song, ", "Number: " + currentSong); //For Debugging
+      } else {
+        currentSong += 1; // Equivalent code: currentSong = currentSong + 1
+        println ("Current Song after the next or back button, but not the last song", "\tNumber: "+currentSong); //For Debugging
+      }
+      song[currentSong].play();
+    } else {
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - 1 ) {
+        println ("Current Song is the last song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - numberOfSongs;
+        println ("Current Song is now the first song or song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
+      } else {
+        currentSong += 1; // Equivalent code: currentSong = currentSong + 1
+        println ("Current Song after the next or back button, but not the last song, ", "Number: " + currentSong); //For Debugging
+      }
+    }
+  }
 }
 //
 //
