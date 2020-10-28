@@ -24,6 +24,8 @@ float button6X, button6Y, button6Width, button6Height;
 float button7X, button7Y, button7Width, button7Height;
 float pt1X, pt1Y, rectWidth, rectHeight;
 
+//space
+
 void setup() {
   size(500, 600);
   minim = new Minim(this);
@@ -32,32 +34,35 @@ void setup() {
   song[2] = minim.loadFile("Berlin at Night.mp3");
   song[3] = minim.loadFile("Stoner Things.mp3");
   song[4] = minim.loadFile("Manic. No Depression.mp3");
-  //
-  /*
+  //space
   songMetaData[0] = song[0].getMetaData();
-   songMetaData[1] = song[1].getMetaData();
-   songMetaData[2] = song[2].getMetaData();
-   songMetaData[3] = song[3].getMetaData();
-   songMetaData[4] = song[4].getMetaData();
-   */
+  songMetaData[1] = song[1].getMetaData();
+  songMetaData[2] = song[2].getMetaData();
+  songMetaData[3] = song[3].getMetaData();
+  songMetaData[4] = song[4].getMetaData();
+
   for (int i=0; i<song.length; i++) {
     songMetaData[i] = song[i].getMetaData();
   }//End Song MetaData
-  //
+  //space
   println("Start of Console");
-  println("Click the Canvas to Finish Starting this App");
+  println("Click the Canvas to Finish Starting this App.");
   //space
   println("Press P Play and Pause");
-  println("Click the Middle most button to Play");
+  println("Click the Middle most button to play.");
   //space
   println("Press S to Stop and Rewind, then P to play again");
-  println("Click the Left bottom most button to Stop and rewind, then click the Middle most button to play");
+  println("Click the Left bottom most button to Stop and rewind, then click the Middle most button to play.");
   //space
   println("Press L to loop the song");
-  println("Click the Right bottom most button to loop and unloop the current track");
+  println("Click the Right bottom most button to loop and unloop the current track.");
   //space
   println("Press R to skip backwards in a song");
   println("Press F to fast forward in a song");
+  println("Click the Left most button to go to the song previous in the list, or Click the Right most button to go to the song next in the list.");
+
+  //space
+
   //VERIFYING METADATA
   //ALWAYS AVAILABLE
   println("\n\nVerifying MetaData");
@@ -72,6 +77,8 @@ void setup() {
   println( "Encoded:", songMetaData[currentSong].encoded() );//HOW A COMPUTER READS A FILE
   //
   //VARIABLE POPULATION
+
+  //space
 
   button1X = width * 1.64/4; 
   button1Y = height * 3/4; 
@@ -113,9 +120,9 @@ void setup() {
   pt1X = width*1.87/7.55;
   pt1Y = height*2/18;
 }
-//
-//
-//
+
+//space
+
 void draw() {
   background(black);
   fill(white);
@@ -136,9 +143,9 @@ void draw() {
   //
   rect(button7X, button7Y, button7Width, button7Height);
 }
-//
-//
-//
+
+//space
+
 void keyPressed() {
   if (key == 'p' || key == 'P') {
     if ( song[currentSong].isPlaying() ) {
@@ -149,9 +156,7 @@ void keyPressed() {
     } else {
       song[currentSong].play();
     }
-  }//END PLAY-PAUSE BUTTON
-  //
-  //
+  }
   //
   if (key == 's' || key =='S') {
     if ( song[currentSong].isPlaying() ) {
@@ -159,16 +164,12 @@ void keyPressed() {
       song[currentSong].rewind();
     } else {
       song[currentSong].rewind();
-    }// END STOP BUTTON
+    }
   }
-  //
-  //
   //
   if (key == 'l' || key == 'L') song[currentSong].loop(loopNum);
   if (key == 'f' || key == 'F') song[currentSong].skip(5000);
   if (key == 'r' || key == 'R') song[currentSong].skip(-5000);
-  //
-  //
   //
   println ("Current Song before the next or back button, ", "Number: "+currentSong); //For Debugging
   if (key == 'n' || key == 'N') { //Next Button to Console
@@ -197,8 +198,6 @@ void keyPressed() {
     }
   }
   //
-  //
-  //
   println ("Current Song before the next or back button, ", "Number: "+currentSong); //For Debugging
   if (key == 'b' || key == 'B') { //Next Button to Console
     if (song[currentSong].isPlaying()) {
@@ -226,8 +225,6 @@ void keyPressed() {
     }
   }
 }
-//
-//
 //
 void mousePressed() {
   if (mouseX>button1X && mouseX<button1X+button1Width && mouseY>button1Y && mouseY<button1Y+button1Height) {
@@ -261,10 +258,10 @@ void mousePressed() {
       song[currentSong].rewind();
     }
   }
+  //
   if (mouseX>button5X && mouseX<button5X+button5Width && mouseY>button5Y && mouseY<button5Y+button5Height) {
-    
+    song[currentSong].loop(loopNum);
   }
-
   //
   if (mouseX>button7X && mouseX<button7X+button7Width && mouseY>button7Y && mouseY<button7Y+button7Height) { //Next Button to Console
     if (song[currentSong].isPlaying()) {
