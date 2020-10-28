@@ -131,6 +131,10 @@ void draw() {
   rect(button4X, button4Y, button4Width, button4Height); 
   //                                                          //Change these two to circles 
   rect(button5X, button5Y, button5Width, button5Height);
+  //
+  rect(button6X, button6Y, button6Width, button6Height);
+  //
+  rect(button7X, button7Y, button7Width, button7Height);
 }
 //
 //
