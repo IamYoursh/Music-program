@@ -34,13 +34,13 @@ void setup() {
   song[2] = minim.loadFile("Berlin at Night.mp3");
   song[3] = minim.loadFile("Stoner Things.mp3");
   song[4] = minim.loadFile("Manic. No Depression.mp3");
-  //space
+//space
   songMetaData[0] = song[0].getMetaData();
   songMetaData[1] = song[1].getMetaData();
   songMetaData[2] = song[2].getMetaData();
   songMetaData[3] = song[3].getMetaData();
   songMetaData[4] = song[4].getMetaData();
-
+//space
   for (int i=0; i<song.length; i++) {
     songMetaData[i] = song[i].getMetaData();
   }//End Song MetaData
