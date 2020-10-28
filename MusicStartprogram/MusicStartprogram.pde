@@ -20,6 +20,8 @@ float button2X, button2Y, button2Width, button2Height;
 float button3X, button3Y, button3Width, button3Height;
 float button4X, button4Y, button4Width, button4Height;
 float button5X, button5Y, button5Width, button5Height;
+float button6X, button6Y, button6Width, button6Height;
+float button7X, button7Y, button7Width, button7Height;
 float pt1X, pt1Y, rectWidth, rectHeight;
 
 void setup() {
@@ -95,6 +97,16 @@ void setup() {
   button5Y = height * 5.5/6; 
   button5Width = width * 1.6/6 * 1.6/6;
   button5Height = height * 1.45/6 * 1.45/6;
+  //
+  button6X = width * 1/4; 
+  button6Y = height * 5.5/6; 
+  button6Width = width * 1.6/6 * 1.6/6;
+  button6Height = height * 1.45/6 * 1.45/6;
+  //
+  button7X = width * 3/4; 
+  button7Y = height * 5.5/6; 
+  button7Width = width * 1.6/6 * 1.6/6;
+  button7Height = height * 1.45/6 * 1.45/6;
   //
   rectWidth = width*2.5/5;
   rectHeight = height*3/5;
