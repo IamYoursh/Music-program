@@ -46,9 +46,16 @@ void setup() {
   //
   println("Start of Console");
   println("Click the Canvas to Finish Starting this App");
+  //space
   println("Press P Play and Pause");
-  println("Press S to Stop and Rewind");
+  println("Click the Middle most button to Play");
+  //space
+  println("Press S to Stop and Rewind, then P to play again");
+  println("Click the Left bottom most button to Stop and rewind, then click the Middle most button to play");
+  //space
   println("Press L to loop the song");
+  println("Click the Right bottom most button to loop and unloop the current track");
+  //space
   println("Press R to skip backwards in a song");
   println("Press F to fast forward in a song");
   //VERIFYING METADATA
@@ -58,14 +65,7 @@ void setup() {
   println( "Song Length (in minutes & seconds):", (songMetaData[currentSong].length()/1000)/60, "minutes", (songMetaData[currentSong].length()/1000)-((songMetaData[currentSong].length()/1000)/60 * 60), "seconds");
   println( "Title:", songMetaData[currentSong].title() );
   println( "Author:", songMetaData[currentSong].author() );
-  println( "Composer:", songMetaData[currentSong].composer() );
-  println( "Orchestra:", songMetaData[currentSong].orchestra() );
   println( "Album:", songMetaData[currentSong].album() );
-  println( "Disc:", songMetaData[currentSong].disc() );
-  println( "Publisher:", songMetaData[currentSong].publisher() );
-  println( "Date Release:", songMetaData[currentSong].date() );
-  println( "Copyright:", songMetaData[currentSong].copyright() );
-  println( "Comment:", songMetaData[currentSong].comment() );
   println( "Lyrics:", songMetaData[currentSong].lyrics() );
   println( "Track:", songMetaData[currentSong].track() );
   println( "Genre:", songMetaData[currentSong].genre() );
