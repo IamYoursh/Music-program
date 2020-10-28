@@ -98,15 +98,15 @@ void setup() {
   button5Width = width * 1.6/6 * 1.6/6;
   button5Height = height * 1.45/6 * 1.45/6;
   //
-  button6X = width * 1/4; 
-  button6Y = height * 5.5/6; 
+  button6X = width * 0.46/4; 
+  button6Y = height * 4.83/6; 
   button6Width = width * 1.6/6 * 1.6/6;
-  button6Height = height * 1.45/6 * 1.45/6;
+  button6Height = height * 1.6/6 * 1.6/6;
   //
-  button7X = width * 3/4; 
-  button7Y = height * 5.5/6; 
+  button7X = width * 4.83/6; 
+  button7Y = height * 4.83/6; 
   button7Width = width * 1.6/6 * 1.6/6;
-  button7Height = height * 1.45/6 * 1.45/6;
+  button7Height = height * 1.6/6 * 1.6/6;
   //
   rectWidth = width*2.5/5;
   rectHeight = height*3/5;
@@ -196,6 +196,35 @@ void keyPressed() {
       }
     }
   }
+  //
+  //
+  //
+  println ("Current Song before the next or back button, ", "Number: "+currentSong); //For Debugging
+  if (key == 'b' || key == 'B') { //Next Button to Console
+    if (song[currentSong].isPlaying()) {
+      song[currentSong].pause();
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - numberOfSongs ) {
+        println ("Current Song is the last song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - 1;
+        println ("Current Song is now the first song, ", "Number: " + currentSong); //For Debugging
+      } else {
+        currentSong -= 1; // Equivalent code: currentSong = currentSong + 1
+        println ("Current Song after the next or back button, but not the last song", "\tNumber: "+currentSong); //For Debugging
+      }
+      song[currentSong].play();
+    } else {
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - numberOfSongs ) {
+        println ("Current Song is the last song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - 1;
+        println ("Current Song is now the first song or song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
+      } else {
+        currentSong -= 1; // Equivalent code: currentSong = currentSong + 1
+        println ("Current Song after the next or back button, but not the last song, ", "Number: " + currentSong); //For Debugging
+      }
+    }
+  }
 }
 //
 //
@@ -230,6 +259,63 @@ void mousePressed() {
       song[currentSong].rewind();
     } else {
       song[currentSong].rewind();
+    }
+  }
+  if (mouseX>button5X && mouseX<button5X+button5Width && mouseY>button5Y && mouseY<button5Y+button5Height) {
+    
+  }
+
+  //
+  if (mouseX>button7X && mouseX<button7X+button7Width && mouseY>button7Y && mouseY<button7Y+button7Height) { //Next Button to Console
+    if (song[currentSong].isPlaying()) {
+      song[currentSong].pause();
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - 1 ) {
+        println ("Current Song is the last song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - numberOfSongs;
+        println ("Current Song is now the first song, ", "Number: " + currentSong); //For Debugging
+      } else {
+        currentSong += 1; // Equivalent code: currentSong = currentSong + 1
+        println ("Current Song after the next or back button, but not the last song", "\tNumber: "+currentSong); //For Debugging
+      }
+      song[currentSong].play();
+    } else {
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - 1 ) {
+        println ("Current Song is the last song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - numberOfSongs;
+        println ("Current Song is now the first song or song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
+      } else {
+        currentSong += 1; // Equivalent code: currentSong = currentSong + 1
+        println ("Current Song after the next or back button, but not the last song, ", "Number: " + currentSong); //For Debugging
+      }
+    }
+  }
+  //
+  println ("Current Song before the next or back button, ", "Number: "+currentSong); //For Debugging
+  if (mouseX>button6X && mouseX<button6X+button6Width && mouseY>button6Y && mouseY<button6Y+button6Height) { //Next Button to Console
+    if (song[currentSong].isPlaying()) {
+      song[currentSong].pause();
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - numberOfSongs ) {
+        println ("Current Song is the last song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - 1;
+        println ("Current Song is now the first song, ", "Number: " + currentSong); //For Debugging
+      } else {
+        currentSong -= 1; // Equivalent code: currentSong = currentSong + 1
+        println ("Current Song after the next or back button, but not the last song", "\tNumber: "+currentSong); //For Debugging
+      }
+      song[currentSong].play();
+    } else {
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - numberOfSongs ) {
+        println ("Current Song is the last song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - 1;
+        println ("Current Song is now the first song or song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
+      } else {
+        currentSong -= 1; // Equivalent code: currentSong = currentSong + 1
+        println ("Current Song after the next or back button, but not the last song, ", "Number: " + currentSong); //For Debugging
+      }
     }
   }
 }
