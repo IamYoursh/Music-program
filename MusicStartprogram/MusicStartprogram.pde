@@ -24,29 +24,35 @@ float button6X, button6Y, button6Width, button6Height;
 float button7X, button7Y, button7Width, button7Height;
 float pt1X, pt1Y, rectWidth, rectHeight;
 PFont titleFont;
-color purple = #2C08FF;
 
-//space
+  //space
 
 void setup() {
   size(500, 600);
   minim = new Minim(this);
-  song[0] = minim.loadFile("Danger Snow.mp3");
-  song[1] = minim.loadFile("Grey Flannel.mp3");
-  song[2] = minim.loadFile("Berlin at Night.mp3");
-  song[3] = minim.loadFile("Stoner Things.mp3");
-  song[4] = minim.loadFile("Manic. No Depression.mp3");
-//space
+  song[0] = minim.loadFile("Danger_Snow.mp3");
+  song[1] = minim.loadFile("Grey_Flannel.mp3");
+  song[2] = minim.loadFile("Berlin_at_Night.mp3");
+  song[3] = minim.loadFile("Stoner_Things.mp3");
+  song[4] = minim.loadFile("Manic_No_Depression.mp3");
+  
+  //space
+  
   songMetaData[0] = song[0].getMetaData();
   songMetaData[1] = song[1].getMetaData();
   songMetaData[2] = song[2].getMetaData();
   songMetaData[3] = song[3].getMetaData();
   songMetaData[4] = song[4].getMetaData();
-//space
+  
+  //space
+ 
+  int currentSong = 0;
   for (int i=0; i<song.length; i++) {
     songMetaData[i] = song[i].getMetaData();
   }//End Song MetaData
+  
   //space
+  
   println("Start of Console");
   println("Click the Canvas to Finish Starting this App.");
   //space
@@ -62,7 +68,7 @@ void setup() {
   
   //space
   
-  titleFont = createFont ("Harrington", 15); //Must also Tools / Create Font / Find Font / Do Not Press "OK"
+  titleFont = createFont ("High Tower Text", 15); //Must also Tools / Create Font / Find Font / Do Not Press "OK"
   
   //space
 
@@ -72,12 +78,7 @@ void setup() {
   println( "File Name:", songMetaData[currentSong].fileName() );
   println( "Song Length (in minutes & seconds):", (songMetaData[currentSong].length()/1000)/60, "minutes", (songMetaData[currentSong].length()/1000)-((songMetaData[currentSong].length()/1000)/60 * 60), "seconds");
   println( "Title:", songMetaData[currentSong].title() );
-  println( "Author:", songMetaData[currentSong].author() );
-  println( "Album:", songMetaData[currentSong].album() );
-  println( "Lyrics:", songMetaData[currentSong].lyrics() );
-  println( "Track:", songMetaData[currentSong].track() );
   println( "Genre:", songMetaData[currentSong].genre() );
-  println( "Encoded:", songMetaData[currentSong].encoded() );//HOW A COMPUTER READS A FILE
   //
   //VARIABLE POPULATION
 
@@ -149,10 +150,10 @@ void draw() {
   //space
   
   rect(width*1/4, height*0, width*1/2, height*1/10);
-  fill(purple); //Ink, hexidecimal copied from Color Selector
+  fill(black); //Ink, hexidecimal copied from Color Selector
   textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
   //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
-  textFont(titleFont, 15); //Change the number until it fits, largest font size
+  textFont(titleFont, 25); //Change the number until it fits, largest font size
   text(songMetaData[currentSong].title(), width*1/4, height*0, width*1/2, height*1/10);
   fill(255); //Reset to white for rest of the program
 }
