@@ -14,7 +14,7 @@ AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs];
 int loopNum = 1;
 //
 //GUI
-color white = #FFFFFF, black = #000000;
+color white = #FFFFFF, black = #000000, Dash=#626262;
 float button1X, button1Y, button1Width, button1Height;
 float button2X, button2Y, button2Width, button2Height;
 float button3X, button3Y, button3Width, button3Height;
@@ -23,6 +23,8 @@ float button5X, button5Y, button5Width, button5Height;
 float button6X, button6Y, button6Width, button6Height;
 float button7X, button7Y, button7Width, button7Height;
 float pt1X, pt1Y, rectWidth, rectHeight;
+PFont titleFont;
+color purple = #2C08FF;
 
 //space
 
@@ -48,19 +50,20 @@ void setup() {
   println("Start of Console");
   println("Click the Canvas to Finish Starting this App.");
   //space
-  println("Press P Play and Pause");
   println("Click the Middle most button to play.");
   //space
-  println("Press S to Stop and Rewind, then P to play again");
+  println("Click the inner left or right buttons to skip forwards or backwards 15 seconds in a song.");
+  //space
   println("Click the Left bottom most button to Stop and rewind, then click the Middle most button to play.");
   //space
-  println("Press L to loop the song");
   println("Click the Right bottom most button to loop and unloop the current track.");
   //space
-  println("Press R to skip backwards in a song");
-  println("Press F to fast forward in a song");
   println("Click the Left most button to go to the song previous in the list, or Click the Right most button to go to the song next in the list.");
-
+  
+  //space
+  
+  titleFont = createFont ("Harrington", 15); //Must also Tools / Create Font / Find Font / Do Not Press "OK"
+  
   //space
 
   //VERIFYING METADATA
@@ -124,7 +127,7 @@ void setup() {
 //space
 
 void draw() {
-  background(black);
+  background(Dash);
   fill(white);
 
   rect(button1X, button1Y, button1Width, button1Height);
@@ -142,17 +145,31 @@ void draw() {
   rect(button6X, button6Y, button6Width, button6Height);
   //
   rect(button7X, button7Y, button7Width, button7Height);
+  
+  //space
+  
+  rect(width*1/4, height*0, width*1/2, height*1/10);
+  fill(purple); //Ink, hexidecimal copied from Color Selector
+  textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
+  //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
+  textFont(titleFont, 15); //Change the number until it fits, largest font size
+  text(songMetaData[currentSong].title(), width*1/4, height*0, width*1/2, height*1/10);
+  fill(255); //Reset to white for rest of the program
 }
 
 //space
 
 void keyPressed() {
 }
+
+//space
+
 void mousePressed() {
   if (mouseX>button1X && mouseX<button1X+button1Width && mouseY>button1Y && mouseY<button1Y+button1Height) {
-    println("Song is now playing");
-    println ("Song, ", "Number: "+currentSong);
+      println("Song is now playing.");
+      println ("Song, ", "Number: "+currentSong);
     if ( song[currentSong].isPlaying() ) {
+      println("Song is now paused.");
       song[currentSong].pause();
     } else if (song[currentSong].position() == song[currentSong].length()) {
       song[currentSong].rewind();
@@ -163,19 +180,22 @@ void mousePressed() {
   }
   //
   if (mouseX>button2X && mouseX<button2X+button2Width && mouseY>button2Y && mouseY<button2Y+button2Height) {
+      println("Skipped 15 seconds forward.");
     if ( song[currentSong].isPlaying() ) {
       song[currentSong].skip(15000);
     }
   }
   //
   if (mouseX>button3X && mouseX<button3X+button3Width && mouseY>button3Y && mouseY<button3Y+button3Height) {
+      println("Skipped 15 seconds backward.");
     if ( song[currentSong].isPlaying() ) {
       song[currentSong].skip(-15000);
     }
   }
   //
   if (mouseX>button4X && mouseX<button4X+button4Width && mouseY>button4Y && mouseY<button4Y+button4Height) {
-    println("Song has now stopped and rewound.");
+      println("Song has now stopped and rewound.");
+      println("Press play to continue.");
     if ( song[currentSong].isPlaying() ) {
       song[currentSong].pause();
       song[currentSong].rewind();
@@ -186,7 +206,7 @@ void mousePressed() {
   //
   if (mouseX>button5X && mouseX<button5X+button5Width && mouseY>button5Y && mouseY<button5Y+button5Height) {
     song[currentSong].loop(loopNum);
-    println("Song will now loop.");
+      println("Song will now loop.");
   }
   //
   if (mouseX>button7X && mouseX<button7X+button7Width && mouseY>button7Y && mouseY<button7Y+button7Height) { //Next Button to Console
@@ -210,7 +230,7 @@ void mousePressed() {
         println ("Current Song is now the first song or song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
       } else {
         currentSong += 1; // Equivalent code: currentSong = currentSong + 1
-        println ("Current Song after pressing the next or back button, Now playing next song, ", "Number: " + currentSong); //For Debugging
+        println ("Current Song after pressing the next or back button, Now playing next song., ", "Number: " + currentSong); //For Debugging
       }
     }
   }
@@ -225,7 +245,7 @@ void mousePressed() {
         println ("Current Song is now the first song, ", "Number: " + currentSong); //For Debugging
       } else {
         currentSong -= 1; // Equivalent code: currentSong = currentSong + 1
-        println ("Current Song after pressing the next or back button, Now playing previous song", "\tNumber: "+currentSong); //For Debugging
+        println ("Current Song after pressing the next or back button, Now playing previous song.", "\tNumber: "+currentSong); //For Debugging
       }
       song[currentSong].play();
     } else {
@@ -236,7 +256,7 @@ void mousePressed() {
         println ("Current Song is now the first song or song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
       } else {
         currentSong -= 1; // Equivalent code: currentSong = currentSong + 1
-        println ("Current Song after pressing the next or back button, Now playing previous song, ", "Number: " + currentSong); //For Debugging
+        println ("Current Song after pressing the next or back button, Now playing previous song., ", "Number: " + currentSong); //For Debugging
       }
     }
   }
