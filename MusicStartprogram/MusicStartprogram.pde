@@ -147,87 +147,11 @@ void draw() {
 //space
 
 void keyPressed() {
-  if (key == 'p' || key == 'P') {
-    if ( song[currentSong].isPlaying() ) {
-      song[currentSong].pause();
-    } else if (song[currentSong].position() == song[currentSong].length()) {
-      song[currentSong].rewind();
-      song[currentSong].play();
-    } else {
-      song[currentSong].play();
-    }
-  }
-  //
-  if (key == 's' || key =='S') {
-    if ( song[currentSong].isPlaying() ) {
-      song[currentSong].pause();
-      song[currentSong].rewind();
-    } else {
-      song[currentSong].rewind();
-    }
-  }
-  //
-  if (key == 'l' || key == 'L') song[currentSong].loop(loopNum);
-  if (key == 'f' || key == 'F') song[currentSong].skip(5000);
-  if (key == 'r' || key == 'R') song[currentSong].skip(-5000);
-  //
-  println ("Current Song before the next or back button, ", "Number: "+currentSong); //For Debugging
-  if (key == 'n' || key == 'N') { //Next Button to Console
-    if (song[currentSong].isPlaying()) {
-      song[currentSong].pause();
-      song[currentSong].rewind();
-      if ( currentSong == numberOfSongs - 1 ) {
-        println ("Current Song is the last song, ", "Number: " + currentSong); //For Debugging
-        currentSong = numberOfSongs - numberOfSongs;
-        println ("Current Song is now the first song, ", "Number: " + currentSong); //For Debugging
-      } else {
-        currentSong += 1; // Equivalent code: currentSong = currentSong + 1
-        println ("Current Song after the next or back button, but not the last song", "\tNumber: "+currentSong); //For Debugging
-      }
-      song[currentSong].play();
-    } else {
-      song[currentSong].rewind();
-      if ( currentSong == numberOfSongs - 1 ) {
-        println ("Current Song is the last song, ", "Number: " + currentSong); //For Debugging
-        currentSong = numberOfSongs - numberOfSongs;
-        println ("Current Song is now the first song or song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
-      } else {
-        currentSong += 1; // Equivalent code: currentSong = currentSong + 1
-        println ("Current Song after the next or back button, but not the last song, ", "Number: " + currentSong); //For Debugging
-      }
-    }
-  }
-  //
-  println ("Current Song before the next or back button, ", "Number: "+currentSong); //For Debugging
-  if (key == 'b' || key == 'B') { //Next Button to Console
-    if (song[currentSong].isPlaying()) {
-      song[currentSong].pause();
-      song[currentSong].rewind();
-      if ( currentSong == numberOfSongs - numberOfSongs ) {
-        println ("Current Song is the last song, ", "Number: " + currentSong); //For Debugging
-        currentSong = numberOfSongs - 1;
-        println ("Current Song is now the first song, ", "Number: " + currentSong); //For Debugging
-      } else {
-        currentSong -= 1; // Equivalent code: currentSong = currentSong + 1
-        println ("Current Song after the next or back button, but not the last song", "\tNumber: "+currentSong); //For Debugging
-      }
-      song[currentSong].play();
-    } else {
-      song[currentSong].rewind();
-      if ( currentSong == numberOfSongs - numberOfSongs ) {
-        println ("Current Song is the last song, ", "Number: " + currentSong); //For Debugging
-        currentSong = numberOfSongs - 1;
-        println ("Current Song is now the first song or song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
-      } else {
-        currentSong -= 1; // Equivalent code: currentSong = currentSong + 1
-        println ("Current Song after the next or back button, but not the last song, ", "Number: " + currentSong); //For Debugging
-      }
-    }
-  }
 }
-//
 void mousePressed() {
   if (mouseX>button1X && mouseX<button1X+button1Width && mouseY>button1Y && mouseY<button1Y+button1Height) {
+    println("Song is now playing");
+    println ("Song, ", "Number: "+currentSong);
     if ( song[currentSong].isPlaying() ) {
       song[currentSong].pause();
     } else if (song[currentSong].position() == song[currentSong].length()) {
@@ -251,6 +175,7 @@ void mousePressed() {
   }
   //
   if (mouseX>button4X && mouseX<button4X+button4Width && mouseY>button4Y && mouseY<button4Y+button4Height) {
+    println("Song has now stopped and rewound.");
     if ( song[currentSong].isPlaying() ) {
       song[currentSong].pause();
       song[currentSong].rewind();
@@ -261,6 +186,7 @@ void mousePressed() {
   //
   if (mouseX>button5X && mouseX<button5X+button5Width && mouseY>button5Y && mouseY<button5Y+button5Height) {
     song[currentSong].loop(loopNum);
+    println("Song will now loop.");
   }
   //
   if (mouseX>button7X && mouseX<button7X+button7Width && mouseY>button7Y && mouseY<button7Y+button7Height) { //Next Button to Console
@@ -273,7 +199,7 @@ void mousePressed() {
         println ("Current Song is now the first song, ", "Number: " + currentSong); //For Debugging
       } else {
         currentSong += 1; // Equivalent code: currentSong = currentSong + 1
-        println ("Current Song after the next or back button, but not the last song", "\tNumber: "+currentSong); //For Debugging
+        println ("Current Song after pressing the next or back button, Now playing next song.", "\tNumber: "+currentSong); //For Debugging
       }
       song[currentSong].play();
     } else {
@@ -284,12 +210,11 @@ void mousePressed() {
         println ("Current Song is now the first song or song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
       } else {
         currentSong += 1; // Equivalent code: currentSong = currentSong + 1
-        println ("Current Song after the next or back button, but not the last song, ", "Number: " + currentSong); //For Debugging
+        println ("Current Song after pressing the next or back button, Now playing next song, ", "Number: " + currentSong); //For Debugging
       }
     }
   }
   //
-  println ("Current Song before the next or back button, ", "Number: "+currentSong); //For Debugging
   if (mouseX>button6X && mouseX<button6X+button6Width && mouseY>button6Y && mouseY<button6Y+button6Height) { //Next Button to Console
     if (song[currentSong].isPlaying()) {
       song[currentSong].pause();
@@ -300,7 +225,7 @@ void mousePressed() {
         println ("Current Song is now the first song, ", "Number: " + currentSong); //For Debugging
       } else {
         currentSong -= 1; // Equivalent code: currentSong = currentSong + 1
-        println ("Current Song after the next or back button, but not the last song", "\tNumber: "+currentSong); //For Debugging
+        println ("Current Song after pressing the next or back button, Now playing previous song", "\tNumber: "+currentSong); //For Debugging
       }
       song[currentSong].play();
     } else {
@@ -311,7 +236,7 @@ void mousePressed() {
         println ("Current Song is now the first song or song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
       } else {
         currentSong -= 1; // Equivalent code: currentSong = currentSong + 1
-        println ("Current Song after the next or back button, but not the last song, ", "Number: " + currentSong); //For Debugging
+        println ("Current Song after pressing the next or back button, Now playing previous song, ", "Number: " + currentSong); //For Debugging
       }
     }
   }
