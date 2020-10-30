@@ -22,6 +22,7 @@ float button4X, button4Y, button4Width, button4Height;
 float button5X, button5Y, button5Width, button5Height;
 float button6X, button6Y, button6Width, button6Height;
 float button7X, button7Y, button7Width, button7Height;
+float Triangle1X, Triangle1Y, Triangle2X, Triangle2Y, Triangle3X, Triangle3Y;
 float pt1X, pt1Y, rectWidth, rectHeight;
 PFont titleFont;
 
@@ -119,6 +120,13 @@ void setup() {
   button7Width = width * 1.6/6 * 1.6/6;
   button7Height = height * 1.6/6 * 1.6/6;
   //
+  Triangle1X = 
+  Triangle1Y = 
+  Triangle2X = 
+  Triangle2Y = 
+  Triangle3X = 
+  Triangle3Y = 
+  //
   rectWidth = width*2.5/5;
   rectHeight = height*3/5;
   pt1X = width*1.87/7.55;
@@ -146,10 +154,11 @@ void draw() {
   rect(button6X, button6Y, button6Width, button6Height);
   //
   rect(button7X, button7Y, button7Width, button7Height);
-  
+  //
+  triangle(Triangle1X, Triangle1Y, Triangle2X, Triangle2Y, Triangle3X, Triangle3Y);
   //space
   
-  rect(width*1/4, height*0, width*1/2, height*1/10);
+  rect(width*0.99/4, height*0, width*1/2, height*1/10);
   fill(black); //Ink, hexidecimal copied from Color Selector
   textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
   //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
