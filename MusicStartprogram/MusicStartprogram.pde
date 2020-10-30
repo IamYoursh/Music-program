@@ -14,7 +14,7 @@ AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs];
 int loopNum = 1;
 //
 //GUI
-color white = #FFFFFF, black = #000000, Dash=#626262, Red=#9D0000, Green=#1C8621, Blue=#001D83, lightGray=#B4B4B4, Gray=#8E8E8E;
+color white = #FFFFFF, black = #000000, Dash=#626262, Red=#9D0000, Green=#1C8621, lightGreen=#3AFF31, Blue=#001D83, lightGray=#B4B4B4, Gray=#8E8E8E;
 float button1X, button1Y, button1Width, button1Height;
 float button2X, button2Y, button2Width, button2Height;
 float button3X, button3Y, button3Width, button3Height;
@@ -205,9 +205,15 @@ void setup() {
 void draw() {
   background(Dash);
   fill(white);
-  fill(Gray);
+  if(mouseX>button1X && mouseX<button1X+button1Width && mouseY>button1Y && mouseY<button1Y+button1Height) {
+    fill(lightGreen);
   rect(button1X, button1Y, button1Width, button1Height);
+  } else {
+    fill(Gray);
+  rect(button1X, button1Y, button1Width, button1Height);
+  }
   //
+  fill(Gray);
   rect(button2X, button2Y, button2Width, button2Height); 
   //
   rect(button3X, button3Y, button3Width, button3Height);

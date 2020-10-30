@@ -1,3 +1,10 @@
+  
+  
+  
+  //KEY PRESSED//
+  
+  
+  
   /*
   if (key == 'p' || key == 'P') {
     if ( song[currentSong].isPlaying() ) {
