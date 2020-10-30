@@ -32,6 +32,7 @@ float trianglE1X, trianglE1Y, trianglE2X, trianglE2Y, trianglE3X, trianglE3Y;
 float tRianglE1X, tRianglE1Y, tRianglE2X, tRianglE2Y, tRianglE3X, tRianglE3Y;
 float tRiangl31X, tRiangl31Y, tRiangl32X, tRiangl32Y, tRiangl33X, tRiangl33Y;
 //
+float EllipseX, EllipseY, Ellipsewidth, Ellipseheight;
 float ptS1X, pt1SY, rectSWidth, rectSHeight;
 float pt1X, pt1Y, rectWidth, rectHeight;
 PFont titleFont;
@@ -146,26 +147,26 @@ void setup() {
   TrianglE3X = width * 4.4/6;
   TrianglE3Y = height * 5/6;
   //
-  Triangl31X = width * 2.75/4;
+  Triangl31X = width * 2.85/4;
   Triangl31Y = height * 4.81/6;
-  Triangl32X = width * 2.75/4;
+  Triangl32X = width * 2.85/4;
   Triangl32Y = height * 5.21/6;
-  Triangl33X = width * 4.4/6;
+  Triangl33X = width * 4.55/6;
   Triangl33Y = height * 5/6;
   //
-  triangl31X = width ;
-  triangl31Y = height ;
-  triangl32X = width ; 
-  triangl32Y = height ;
-  triangl33X = width ;
-  triangl33Y = height ;
+  triangl31X = width * 1.23/4;
+  triangl31Y = height * 4.81/6;
+  triangl32X = width * 1.23/4; 
+  triangl32Y = height * 5.21/6;
+  triangl33X = width * 1.5/6;
+  triangl33Y = height * 5/6;
   //
-  trianglE1X = width ;
-  trianglE1Y = height ; 
-  trianglE2X = width ;
-  trianglE2Y = height ;
-  trianglE3X = width ;
-  trianglE3Y = height ;
+  trianglE1X = width * 1.12/4;
+  trianglE1Y = height * 4.81/6; 
+  trianglE2X = width * 1.12/4;
+  trianglE2Y = height * 5.21/6;
+  trianglE3X = width * 1.39/6;
+  trianglE3Y = height * 5/6;
   //
   tRianglE1X = width ;
   tRianglE1Y = height ;
@@ -224,19 +225,22 @@ void draw() {
   fill(black);
   triangle(TrianglE1X, TrianglE1Y, TrianglE2X, TrianglE2Y, TrianglE3X, TrianglE3Y);
   //
-  fill(white);
   triangle(Triangl31X, Triangl31Y, Triangl32X, Triangl32Y, Triangl33X, Triangl33Y);
   //
   triangle(triangl31X, triangl31Y, triangl32X, triangl32Y, triangl33X, triangl33Y);
   //
   triangle(trianglE1X, trianglE1Y, trianglE2X, trianglE2Y, trianglE3X, trianglE3Y);
   //
+  fill(white);
   triangle(tRianglE1X, tRianglE1Y, tRianglE2X, tRianglE2Y, tRianglE3X, tRianglE3Y);
   //
   triangle(tRiangl31X, tRiangl31Y, tRiangl32X, tRiangl32Y, tRiangl33X, tRiangl33Y);
   //
   fill(Red);
   rect(ptS1X, pt1SY, rectSWidth, rectSHeight);
+  //
+  
+  ellipse(EllipseX, EllipseY, Ellipsewidth, Ellipseheight);
   //space
   
   fill(lightGray);
