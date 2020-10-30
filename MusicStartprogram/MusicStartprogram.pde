@@ -14,7 +14,7 @@ AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs];
 int loopNum = 1;
 //
 //GUI
-color white = #FFFFFF, black = #000000, Dash=#626262, Red=#9D0000, Green=#1C8621, lightGray=#B4B4B4, Gray=#8E8E8E;
+color white = #FFFFFF, black = #000000, Dash=#626262, Red=#9D0000, Green=#1C8621, Blue=#001D83, lightGray=#B4B4B4, Gray=#8E8E8E;
 float button1X, button1Y, button1Width, button1Height;
 float button2X, button2Y, button2Width, button2Height;
 float button3X, button3Y, button3Width, button3Height;
@@ -184,6 +184,11 @@ void setup() {
   
   //space
   
+  Ellipsewidth = width * 0.3/6;
+  Ellipseheight = height * 0.25/6;
+  EllipseX = width * 4.34/6;
+  EllipseY = height * 5.68/6;
+  //
   rectSWidth = width * 0.24/5;
   rectSHeight = height * 0.12/3;
   ptS1X = width * 1.48/6;
@@ -239,7 +244,7 @@ void draw() {
   fill(Red);
   rect(ptS1X, pt1SY, rectSWidth, rectSHeight);
   //
-  
+  fill(Blue);
   ellipse(EllipseX, EllipseY, Ellipsewidth, Ellipseheight);
   //space
   
