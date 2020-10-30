@@ -22,7 +22,18 @@ float button4X, button4Y, button4Width, button4Height;
 float button5X, button5Y, button5Width, button5Height;
 float button6X, button6Y, button6Width, button6Height;
 float button7X, button7Y, button7Width, button7Height;
+//
 float Triangle1X, Triangle1Y, Triangle2X, Triangle2Y, Triangle3X, Triangle3Y;
+//
+float TrianglE1X, TrianglE1Y, TrianglE2X, TrianglE2Y, TrianglE3X, TrianglE3Y;
+float Triangl31X, Triangl31Y, Triangl32X, Triangl32Y, Triangl33X, Triangl33Y;
+float triangl31X, triangl31Y, triangl32X, triangl32Y, triangl33X, triangl33Y;
+float trianglE1X, trianglE1Y, trianglE2X, trianglE2Y, trianglE3X, trianglE3Y;
+float tRianglE1X, tRianglE1Y, tRianglE2X, tRianglE2Y, tRianglE3X, tRianglE3Y;
+float tRiangl31X, tRiangl31Y, tRiangl32X, tRiangl32Y, tRiangl33X, tRiangl33Y;
+float TRiangl31X, TRiangl31Y, TRiangl32X, TRiangl32Y, TRiangl33X, TRiangl33Y;
+float TRianglE1X, TRianglE1Y, TRianglE2X, TRianglE2Y, TRianglE3X, TRianglE3Y;
+//
 float ptS1X, pt1SY, rectSWidth, rectSHeight;
 float pt1X, pt1Y, rectWidth, rectHeight;
 PFont titleFont;
@@ -165,6 +176,22 @@ void draw() {
   //
   fill(Green);
   triangle(Triangle1X, Triangle1Y, Triangle2X, Triangle2Y, Triangle3X, Triangle3Y);
+  //
+  triangle(TrianglE1X, TrianglE1Y, TrianglE2X, TrianglE2Y, TrianglE3X, TrianglE3Y);
+  //
+  triangle(Triangl31X, Triangl31Y, Triangl32X, Triangl32Y, Triangl33X, Triangl33Y);
+  //
+  triangle(triangl31X, triangl31Y, triangl32X, triangl32Y, triangl33X, triangl33Y);
+  //
+  triangle(trianglE1X, trianglE1Y, trianglE2X, trianglE2Y, trianglE3X, trianglE3Y);
+  //
+  triangle(tRianglE1X, tRianglE1Y, tRianglE2X, tRianglE2Y, tRianglE3X, tRianglE3Y);
+  //
+  triangle(tRiangl31X, tRiangl31Y, tRiangl32X, tRiangl32Y, tRiangl33X, tRiangl33Y);
+  //
+  triangle(TRiangl31X, TRiangl31Y, TRiangl32X, TRiangl32Y, TRiangl33X, TRiangl33Y);
+  //
+  triangle(TRianglE1X, TRianglE1Y, TRianglE2X, TRianglE2Y, TRianglE3X, TRianglE3Y);
   //
   fill(Red);
   rect(ptS1X, pt1SY, rectSWidth, rectSHeight);
