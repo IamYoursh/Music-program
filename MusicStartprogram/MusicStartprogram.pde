@@ -80,7 +80,7 @@ void setup() {
   println( "Title:", songMetaData[currentSong].title() );
   println( "Genre:", songMetaData[currentSong].genre() );
   //
-  //VARIABLE POPULATION
+//VARIABLE POPULATION
 
   //space
 
