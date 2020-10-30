@@ -14,7 +14,7 @@ AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs];
 int loopNum = 1;
 //
 //GUI
-color white = #FFFFFF, black = #000000, Dash=#626262;
+color white = #FFFFFF, black = #000000, Dash=#626262, Red=#9D0000, Green=#1C8621, lightGray=#B4B4B4, Gray=#8E8E8E;
 float button1X, button1Y, button1Width, button1Height;
 float button2X, button2Y, button2Width, button2Height;
 float button3X, button3Y, button3Width, button3Height;
@@ -23,6 +23,7 @@ float button5X, button5Y, button5Width, button5Height;
 float button6X, button6Y, button6Width, button6Height;
 float button7X, button7Y, button7Width, button7Height;
 float Triangle1X, Triangle1Y, Triangle2X, Triangle2Y, Triangle3X, Triangle3Y;
+float ptS1X, pt1SY, rectSWidth, rectSHeight;
 float pt1X, pt1Y, rectWidth, rectHeight;
 PFont titleFont;
 
@@ -120,12 +121,17 @@ void setup() {
   button7Width = width * 1.6/6 * 1.6/6;
   button7Height = height * 1.6/6 * 1.6/6;
   //
-  Triangle1X = 
-  Triangle1Y = 
-  Triangle2X = 
-  Triangle2Y = 
-  Triangle3X = 
-  Triangle3Y = 
+  Triangle1X = width * 1.8/4;
+  Triangle1Y = height * 4.7/6;
+  Triangle2X = width * 1.8/4;
+  Triangle2Y = height * 5.35/6;
+  Triangle3X = width * 3.35/6;
+  Triangle3Y = height * 5/6;
+  //
+  rectSWidth = width * 0.24/5;
+  rectSHeight = height * 0.12/3;
+  ptS1X = width * 1.48/6;
+  pt1SY = height * 5.56/6;
   //
   rectWidth = width*2.5/5;
   rectHeight = height*3/5;
@@ -138,26 +144,33 @@ void setup() {
 void draw() {
   background(Dash);
   fill(white);
-
+  fill(Gray);
   rect(button1X, button1Y, button1Width, button1Height);
   //
-  rect(button2X, button2Y, button2Width, button2Height);
+  rect(button2X, button2Y, button2Width, button2Height); 
   //
-  rect(button3X, button3Y, button3Width, button3Height);  
+  rect(button3X, button3Y, button3Width, button3Height);
   //
-  rect(pt1X, pt1Y, rectWidth, rectHeight);
+  rect(button4X, button4Y, button4Width, button4Height);
   //
-  rect(button4X, button4Y, button4Width, button4Height); 
-  //                                                          //Change these two to circles 
   rect(button5X, button5Y, button5Width, button5Height);
   //
   rect(button6X, button6Y, button6Width, button6Height);
   //
   rect(button7X, button7Y, button7Width, button7Height);
   //
+  fill(white); 
+  //
+  rect(pt1X, pt1Y, rectWidth, rectHeight); 
+  //
+  fill(Green);
   triangle(Triangle1X, Triangle1Y, Triangle2X, Triangle2Y, Triangle3X, Triangle3Y);
+  //
+  fill(Red);
+  rect(ptS1X, pt1SY, rectSWidth, rectSHeight);
   //space
   
+  fill(lightGray);
   rect(width*0.99/4, height*0, width*1/2, height*1/10);
   fill(black); //Ink, hexidecimal copied from Color Selector
   textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
