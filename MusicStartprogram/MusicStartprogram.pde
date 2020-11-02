@@ -14,7 +14,7 @@ AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs];
 int loopNum = 1;
 //
 //GUI
-color white = #FFFFFF, black = #000000, Dash=#626262, Red=#9D0000, Green=#1C8621, lightGreen=#3AFF31, Blue=#001D83, lightGray=#B4B4B4, Gray=#8E8E8E;
+color white = #FFFFFF, black = #000000, Dash=#626262, Red=#9D0000, lightRed=#FF0000, Green=#1C8621, lightGreen=#3AFF31, Blue=#001D83, lightBlue=#1A1FFF, lightGray=#B4B4B4, Gray=#8E8E8E;
 float button1X, button1Y, button1Width, button1Height;
 float button2X, button2Y, button2Width, button2Height;
 float button3X, button3Y, button3Width, button3Height;
@@ -213,13 +213,32 @@ void draw() {
   rect(button1X, button1Y, button1Width, button1Height);
   }
   //
-  fill(Gray);
-  rect(button2X, button2Y, button2Width, button2Height); 
+  if(mouseX>button2X && mouseX<button2X+button2Width && mouseY>button2Y && mouseY<button2Y+button2Height) {
+    fill(lightGray);
+  rect(button2X, button2Y, button2Width, button2Height);
+  } else {
+    fill(Gray);
+  rect(button2X, button2Y, button2Width, button2Height);
+  }
   //
+  if(mouseX>button3X && mouseX<button3X+button3Width && mouseY>button3Y && mouseY<button3Y+button3Height) {
+    fill(lightGray);
   rect(button3X, button3Y, button3Width, button3Height);
+  } else {
+    fill(Gray);
+  rect(button3X, button3Y, button3Width, button3Height);
+  }
   //
+  if(mouseX>button4X && mouseX<button4X+button4Width && mouseY>button4Y && mouseY<button4Y+button4Height) {
+    fill(lightRed);
   rect(button4X, button4Y, button4Width, button4Height);
+  } else {
+    fill(Gray);
+  rect(button4X, button4Y, button4Width, button4Height);
+  }
   //
+  if(mouseX>button5X && mouseX<button5X+button5Width && mouseY>button5Y && mouseY<button5Y+button5Height) {
+    fill(lightBlue);
   rect(button5X, button5Y, button5Width, button5Height);
   //
   rect(button6X, button6Y, button6Width, button6Height);
