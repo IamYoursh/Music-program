@@ -36,6 +36,8 @@ float EllipseX, EllipseY, Ellipsewidth, Ellipseheight;
 float ptS1X, pt1SY, rectSWidth, rectSHeight;
 float pt1X, pt1Y, rectWidth, rectHeight;
 PFont titleFont;
+float ptZ1X, pt1ZY, rectZWidth, rectZHeight;
+float ptX1X, ptX1Y, rectXWidth, rectXHeight;
 
   //space
 
@@ -168,19 +170,19 @@ void setup() {
   trianglE3X = width * 1.39/6;
   trianglE3Y = height * 5/6;
   //
-  tRianglE1X = width ;
-  tRianglE1Y = height ;
-  tRianglE2X = width ;
-  tRianglE2Y = height ;
-  tRianglE3X = width ;
-  tRianglE3Y = height ;
+  tRianglE1X = width * 0.69/4;
+  tRianglE1Y = height * 4.9/6;
+  tRianglE2X = width * 0.69/4;
+  tRianglE2Y = height * 5.17/6;
+  tRianglE3X = width * 0.5/4;
+  tRianglE3Y = height * 5.039/6;
   //
-  tRiangl31X = width ;
-  tRiangl31Y = height ;
-  tRiangl32X = width ;
-  tRiangl32Y = height ;
-  tRiangl33X = width ;
-  tRiangl33Y = height ;
+  tRiangl31X = width * 3.275/4;
+  tRiangl31Y = height * 4.9/6;
+  tRiangl32X = width * 3.275/4;
+  tRiangl32Y = height * 5.17/6;
+  tRiangl33X = width * 5.2/6;
+  tRiangl33Y = height * 5.039/6;
   
   //space
   
@@ -198,6 +200,16 @@ void setup() {
   rectHeight = height*3/5;
   pt1X = width*1.87/7.55;
   pt1Y = height*2/18;
+  //
+  rectZWidth = width * 0.1/6;
+  rectZHeight = height * 0.3/6;
+  ptZ1X = width * 5.1/6;
+  pt1ZY = height * 4.88/6;
+  //
+  rectXWidth = width * 0.1/6;
+  rectXHeight = height * 0.3/6;
+  ptX1X = width * 0.75/6;
+  ptX1Y = height * 4.88/6;
 }
 
 //space
@@ -240,10 +252,26 @@ void draw() {
   if(mouseX>button5X && mouseX<button5X+button5Width && mouseY>button5Y && mouseY<button5Y+button5Height) {
     fill(lightBlue);
   rect(button5X, button5Y, button5Width, button5Height);
+  } else {
+    fill(Gray);
+  rect(button5X, button5Y, button5Width, button5Height);
+  }
   //
+  if(mouseX>button6X && mouseX<button6X+button6Width && mouseY>button6Y && mouseY<button6Y+button6Height) {
+    fill(lightGray);
   rect(button6X, button6Y, button6Width, button6Height);
+  } else {
+    fill(Gray);
+  rect(button6X, button6Y, button6Width, button6Height);
+  }
   //
+  if(mouseX>button7X && mouseX<button7X+button7Width && mouseY>button7Y && mouseY<button7Y+button7Height) {
+    fill(lightGray);
   rect(button7X, button7Y, button7Width, button7Height);
+  } else {
+    fill(Gray);
+  rect(button7X, button7Y, button7Width, button7Height);
+  }
   //
   fill(white); 
   //
@@ -261,10 +289,13 @@ void draw() {
   //
   triangle(trianglE1X, trianglE1Y, trianglE2X, trianglE2Y, trianglE3X, trianglE3Y);
   //
-  fill(white);
   triangle(tRianglE1X, tRianglE1Y, tRianglE2X, tRianglE2Y, tRianglE3X, tRianglE3Y);
   //
   triangle(tRiangl31X, tRiangl31Y, tRiangl32X, tRiangl32Y, tRiangl33X, tRiangl33Y);
+  //
+  rect(ptZ1X, pt1ZY, rectZWidth, rectZHeight);
+  //
+  rect(ptX1X, ptX1Y, rectXWidth, rectXHeight);
   //
   fill(Red);
   rect(ptS1X, pt1SY, rectSWidth, rectSHeight);
