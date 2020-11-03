@@ -7,7 +7,7 @@ import ddf.minim.ugens.*;
 
 //Global Variables
 Minim minim;
-int numberOfSongs = 5;
+int numberOfSongs = 6;
 AudioPlayer[] song = new AudioPlayer[numberOfSongs];
 int currentSong = numberOfSongs - numberOfSongs;
 AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs];
@@ -49,6 +49,7 @@ void setup() {
   song[2] = minim.loadFile("Berlin_at_Night.mp3");
   song[3] = minim.loadFile("Stoner_Things.mp3");
   song[4] = minim.loadFile("Manic_No_Depression.mp3");
+  song[5] = minim.loadFile("Pen_Clicking_.mp3");
   
   //space
   
@@ -325,6 +326,8 @@ void keyPressed() {
 
 void mousePressed() {
   if (mouseX>button1X && mouseX<button1X+button1Width && mouseY>button1Y && mouseY<button1Y+button1Height) {
+    song[5].play();
+    song[5].rewind();
       println("Song is now playing.");
       println ("Song, ", "Number: "+currentSong);
     if ( song[currentSong].isPlaying() ) {
@@ -339,6 +342,8 @@ void mousePressed() {
   }
   //
   if (mouseX>button2X && mouseX<button2X+button2Width && mouseY>button2Y && mouseY<button2Y+button2Height) {
+        song[5].play();
+    song[5].rewind();
       println("Skipped 15 seconds forward.");
     if ( song[currentSong].isPlaying() ) {
       song[currentSong].skip(15000);
@@ -346,6 +351,8 @@ void mousePressed() {
   }
   //
   if (mouseX>button3X && mouseX<button3X+button3Width && mouseY>button3Y && mouseY<button3Y+button3Height) {
+        song[5].play();
+    song[5].rewind();
       println("Skipped 15 seconds backward.");
     if ( song[currentSong].isPlaying() ) {
       song[currentSong].skip(-15000);
@@ -353,6 +360,8 @@ void mousePressed() {
   }
   //
   if (mouseX>button4X && mouseX<button4X+button4Width && mouseY>button4Y && mouseY<button4Y+button4Height) {
+        song[5].play();
+    song[5].rewind();
       println("Song has now stopped and rewound.");
       println("Press play to continue.");
     if ( song[currentSong].isPlaying() ) {
@@ -364,11 +373,15 @@ void mousePressed() {
   }
   //
   if (mouseX>button5X && mouseX<button5X+button5Width && mouseY>button5Y && mouseY<button5Y+button5Height) {
+        song[5].play();
+    song[5].rewind();
     song[currentSong].loop(loopNum);
       println("Song will now loop.");
   }
   //
-  if (mouseX>button7X && mouseX<button7X+button7Width && mouseY>button7Y && mouseY<button7Y+button7Height) { //Next Button to Console
+  if (mouseX>button7X && mouseX<button7X+button7Width && mouseY>button7Y && mouseY<button7Y+button7Height) { 
+        song[5].play();
+    song[5].rewind();
     if (song[currentSong].isPlaying()) {
       song[currentSong].pause();
       song[currentSong].rewind();
@@ -394,7 +407,9 @@ void mousePressed() {
     }
   }
   //
-  if (mouseX>button6X && mouseX<button6X+button6Width && mouseY>button6Y && mouseY<button6Y+button6Height) { //Next Button to Console
+  if (mouseX>button6X && mouseX<button6X+button6Width && mouseY>button6Y && mouseY<button6Y+button6Height) {
+        song[5].play();
+    song[5].rewind();
     if (song[currentSong].isPlaying()) {
       song[currentSong].pause();
       song[currentSong].rewind();
