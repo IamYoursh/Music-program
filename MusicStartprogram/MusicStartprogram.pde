@@ -7,7 +7,7 @@ import ddf.minim.ugens.*;
 
 //Global Variables
 Minim minim;
-int numberOfSongs = 5;
+int numberOfSongs = 6;
 AudioPlayer[] song = new AudioPlayer[numberOfSongs];
 int currentSong = numberOfSongs - numberOfSongs;
 AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs];
@@ -49,6 +49,7 @@ void setup() {
   song[2] = minim.loadFile("Berlin_at_Night.mp3");
   song[3] = minim.loadFile("Stoner_Things.mp3");
   song[4] = minim.loadFile("Manic_No_Depression.mp3");
+  song[5] = minim.loadFile("soundEffect.ove");
   
   //space
   
@@ -313,7 +314,7 @@ void draw() {
   text(songMetaData[currentSong].title(), width*1/4, height*0, width*1/2, height*1/10);
   fill(255); //Reset to white for rest of the program
   //
-  
+
 }
 
 //space
