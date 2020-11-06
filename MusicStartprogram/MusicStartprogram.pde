@@ -1,3 +1,4 @@
+//START OF MUSIC CODE//MINIM LIBRARY//
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -38,6 +39,11 @@ float pt1X, pt1Y, rectWidth, rectHeight;
 PFont titleFont;
 float ptZ1X, pt1ZY, rectZWidth, rectZHeight;
 float ptX1X, ptX1Y, rectXWidth, rectXHeight;
+//
+PImage img;
+float imageStartWidth, imageStartHeight, imageWidth, imageHeight;
+float imageWidthRatio;
+float imageHeightRatio;
 
   //space
 
@@ -58,7 +64,7 @@ void setup() {
   songMetaData[2] = song[2].getMetaData();
   songMetaData[3] = song[3].getMetaData();
   songMetaData[4] = song[4].getMetaData();
-
+  
   //space
  
   int currentSong = 0;
@@ -98,7 +104,15 @@ void setup() {
 //VARIABLE POPULATION
 
   //space
-
+  
+  img = loadImage("blizzard.jpg");
+  imageWidthRatio = 640.0/120.0;
+  imageHeightRatio = 402.0/120.0;
+  imageStartWidth = width*0;
+  imageStartHeight = height*0;
+  imageWidth = width*imageWidthRatio;
+  imageHeight = height*imageHeightRatio;
+  //
   button1X = width * 1.64/4; 
   button1Y = height * 3/4; 
   button1Width = width * 2.5/6 * 2.5/6;
@@ -211,11 +225,25 @@ void setup() {
   rectXHeight = height * 0.3/6;
   ptX1X = width * 0.75/6;
   ptX1Y = height * 4.88/6;
+  //
+  /*
+  img = loadImage("blizzard.jpg");
+  imageWidthRatio = 640.0/120.0;
+  imageHeightRatio = 402.0/120.0;
+  imageStartWidth = width*0;
+  imageStartHeight = height*0;
+  imageWidth = width*imageWidthRatio;
+  imageHeight = height*imageHeightRatio;
+  */
+  //
 }
 
 //space
 
 void draw() {
+  //
+  image(img, imageStartWidth, imageStartHeight, imageWidth, imageHeight);
+  //
   background(Dash);
   fill(white);
   if(mouseX>button1X && mouseX<button1X+button1Width && mouseY>button1Y && mouseY<button1Y+button1Height) {
