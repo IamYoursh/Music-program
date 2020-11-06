@@ -40,10 +40,12 @@ PFont titleFont;
 float ptZ1X, pt1ZY, rectZWidth, rectZHeight;
 float ptX1X, ptX1Y, rectXWidth, rectXHeight;
 //
+/*
 PImage img;
 float imageStartWidth, imageStartHeight, imageWidth, imageHeight;
 float imageWidthRatio;
 float imageHeightRatio;
+*/
 
   //space
 
@@ -105,14 +107,6 @@ void setup() {
 
   //space
   
-  img = loadImage("blizzard.jpg");
-  imageWidthRatio = 640.0/120.0;
-  imageHeightRatio = 402.0/120.0;
-  imageStartWidth = width*0;
-  imageStartHeight = height*0;
-  imageWidth = width*imageWidthRatio;
-  imageHeight = height*imageHeightRatio;
-  //
   button1X = width * 1.64/4; 
   button1Y = height * 3/4; 
   button1Width = width * 2.5/6 * 2.5/6;
@@ -242,7 +236,7 @@ void setup() {
 
 void draw() {
   //
-  image(img, imageStartWidth, imageStartHeight, imageWidth, imageHeight);
+  //image(img, imageStartWidth, imageStartHeight, imageWidth, imageHeight);
   //
   background(Dash);
   fill(white);
